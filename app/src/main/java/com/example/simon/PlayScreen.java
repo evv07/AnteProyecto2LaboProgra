@@ -23,6 +23,7 @@ public class PlayScreen extends AppCompatActivity {
     public Vector<Integer> PlayerVector = new Vector<>();
 
     int cont;
+    int a = 1;
 
     public void YouLostActivity(View view){
         Intent GoToYouLost = new Intent(this, YouLostActivity.class);
@@ -77,16 +78,16 @@ public class PlayScreen extends AppCompatActivity {
                 RoosterButton.setEnabled(false);
                 cont=0;
 
-                SimonVector.clear();
+                //SimonVector.clear();
                 PlayerVector.clear();
-                for(int i=0; i<2 ; i++){
+                for(int i=0; i<1 ; i++){
                     Log.d("aaa" + Integer.toString(i),"aaa");
                     SimonVector.add(getRandomNumberInRange());
                 }
 
                 final Handler handler = new Handler();
 
-                        for(int i = 0;i<2 ; i++){
+                        for(int i = 0;i<a ; i++){
                             Log.d("Valores vector" + Integer.toString(SimonVector.elementAt(i)), " ");
                             switch (SimonVector.elementAt(i)) {
                                 case 0:
@@ -145,6 +146,7 @@ public class PlayScreen extends AppCompatActivity {
                                     break;
                             }
                         }
+                        a++;
 
                 DogButton.setEnabled(true);
                 CatButton.setEnabled(true);
@@ -154,8 +156,6 @@ public class PlayScreen extends AppCompatActivity {
                 RoosterButton.setEnabled(true);
 
             }
-
-
 
         });
 
