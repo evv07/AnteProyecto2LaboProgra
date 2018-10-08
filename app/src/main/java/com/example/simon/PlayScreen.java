@@ -19,10 +19,14 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class PlayScreen extends AppCompatActivity {
 
+    //Vectores que almacenan la secuencia generada aleatoriamente
+    //y la secuencia ingresada por el jugador
     public Vector<Integer> SimonVector = new Vector<>();
     public Vector<Integer> PlayerVector = new Vector<>();
 
-    int cont;
+    //contador de puntos que luego se pasa a la activity YouLostActivity para desplegarlos
+    public static int cont;
+    //Variable auxiliar
     int a = 1;
 
     public void YouLostActivity(View view){
@@ -30,15 +34,11 @@ public class PlayScreen extends AppCompatActivity {
         startActivity(GoToYouLost);
     }
 
+    //Funcion que crea un numero aleatorio
     private static int getRandomNumberInRange() {
-
         Random r = new Random();
         return r.nextInt((5 - 0) + 1) + 0;
     }
-
-
-    boolean lost = false;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +49,22 @@ public class PlayScreen extends AppCompatActivity {
         //Animacion cuando se presionan los botones
         final Animation anim = AnimationUtils.loadAnimation(this, R.anim.rotate);
 
-        //Declaracion botones
+        //Botones
         final ImageButton DogButton = (ImageButton) this.findViewById(R.id.DogButton);
+        DogButton.setBackgroundDrawable(null);
         final ImageButton CatButton = (ImageButton) this.findViewById(R.id.CatButton);
+        CatButton.setBackgroundDrawable(null);
         final ImageButton CowButton = (ImageButton) this.findViewById(R.id.CowButton);
+        CowButton.setBackgroundDrawable(null);
         final ImageButton HorseButton = (ImageButton) this.findViewById(R.id.HorseButton);
+        HorseButton.setBackgroundDrawable(null);
         final ImageButton FrogButton = (ImageButton) this.findViewById(R.id.FrogButton);
+        FrogButton.setBackgroundDrawable(null);
         final ImageButton RoosterButton = (ImageButton) this.findViewById(R.id.RoosterButton);
+        RoosterButton.setBackgroundDrawable(null);
         final Button StartGameButton = (Button) this.findViewById(R.id.StartGameButton);
 
-        //***************Sonidos
+        //Sonidos
         final MediaPlayer dogSound = MediaPlayer.create(this, R.raw.dogsound);
         final MediaPlayer catSound = MediaPlayer.create(this, R.raw.catsound);
         final MediaPlayer cowSound = MediaPlayer.create(this, R.raw.cowsound);
@@ -66,27 +72,32 @@ public class PlayScreen extends AppCompatActivity {
         final MediaPlayer frogSound = MediaPlayer.create(this, R.raw.frogsound);
         final MediaPlayer roosterSound = MediaPlayer.create(this, R.raw.roostersound);
 
-
+        //Cuando se presiona el boton de empezar el juego
         StartGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Se deshabilitan botones para que no interrumpa la secuencia generada
                 DogButton.setEnabled(false);
                 CatButton.setEnabled(false);
                 CowButton.setEnabled(false);
                 HorseButton.setEnabled(false);
                 FrogButton.setEnabled(false);
                 RoosterButton.setEnabled(false);
+
                 cont=0;
 
-                //SimonVector.clear();
                 PlayerVector.clear();
+
+                //Agrega un nuevo numero aleatorio a secuencia
                 for(int i=0; i<1 ; i++){
                     Log.d("aaa" + Integer.toString(i),"aaa");
                     SimonVector.add(getRandomNumberInRange());
                 }
 
+                //Para los retrasos
                 final Handler handler = new Handler();
 
+                        //Despliega secuencia para que el jugador la vea
                         for(int i = 0;i<a ; i++){
                             Log.d("Valores vector" + Integer.toString(SimonVector.elementAt(i)), " ");
                             switch (SimonVector.elementAt(i)) {
@@ -148,6 +159,7 @@ public class PlayScreen extends AppCompatActivity {
                         }
                         a++;
 
+                //Se vuelven a activar los botones
                 DogButton.setEnabled(true);
                 CatButton.setEnabled(true);
                 CowButton.setEnabled(true);
@@ -159,6 +171,7 @@ public class PlayScreen extends AppCompatActivity {
 
         });
 
+        //Logica cuando se presiona boton del perro
         DogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -166,8 +179,9 @@ public class PlayScreen extends AppCompatActivity {
                 view.startAnimation(anim);
                 PlayerVector.add(0);
                 if(SimonVector.elementAt(cont) != PlayerVector.elementAt(cont)){
-                    lost = true;
-                    startActivity( new Intent(PlayScreen.this, YouLostActivity.class));
+                    Intent i = new Intent(getApplicationContext(), YouLostActivity.class);
+                    i.putExtra("puntos",SimonVector.size()-1);
+                    startActivity(i);
                     }
 
                     else if(SimonVector.size() == PlayerVector.size()){
@@ -186,6 +200,7 @@ public class PlayScreen extends AppCompatActivity {
             }
         });
 
+        //Logica cuando se presiona boton del gato
         CatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -193,8 +208,9 @@ public class PlayScreen extends AppCompatActivity {
                 view.startAnimation(anim);
                 PlayerVector.add(1);
                 if(SimonVector.elementAt(cont) != PlayerVector.elementAt(cont)){
-                    lost = true;
-                    startActivity( new Intent(PlayScreen.this, YouLostActivity.class));
+                    Intent i = new Intent(getApplicationContext(), YouLostActivity.class);
+                    i.putExtra("puntos",SimonVector.size()-1);
+                    startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
                     final Handler handler2 = new Handler();
@@ -211,6 +227,7 @@ public class PlayScreen extends AppCompatActivity {
             }
         });
 
+        //Logica cuando se presiona boton de la vaca
         CowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -218,8 +235,9 @@ public class PlayScreen extends AppCompatActivity {
                 view.startAnimation(anim);
                 PlayerVector.add(2);
                 if(SimonVector.elementAt(cont) != PlayerVector.elementAt(cont)){
-                    lost = true;
-                    startActivity( new Intent(PlayScreen.this, YouLostActivity.class));
+                    Intent i = new Intent(getApplicationContext(), YouLostActivity.class);
+                    i.putExtra("puntos",SimonVector.size()-1);
+                    startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
                     final Handler handler3 = new Handler();
@@ -236,6 +254,7 @@ public class PlayScreen extends AppCompatActivity {
             }
         });
 
+        //Logica cuando se presiona boton del caballo
         HorseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -243,8 +262,9 @@ public class PlayScreen extends AppCompatActivity {
                 view.startAnimation(anim);
                 PlayerVector.add(3);
                 if(SimonVector.elementAt(cont) != PlayerVector.elementAt(cont)){
-                    lost = true;
-                    startActivity( new Intent(PlayScreen.this, YouLostActivity.class));
+                    Intent i = new Intent(getApplicationContext(), YouLostActivity.class);
+                    i.putExtra("puntos",SimonVector.size()-1);
+                    startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
                     final Handler handler4 = new Handler();
@@ -261,6 +281,7 @@ public class PlayScreen extends AppCompatActivity {
             }
         });
 
+        //Logica cuando se presiona boton de la rana
         FrogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -268,8 +289,9 @@ public class PlayScreen extends AppCompatActivity {
                 view.startAnimation(anim);
                 PlayerVector.add(4);
                 if(SimonVector.elementAt(cont) != PlayerVector.elementAt(cont)){
-                    lost = true;
-                    startActivity( new Intent(PlayScreen.this, YouLostActivity.class));
+                    Intent i = new Intent(getApplicationContext(), YouLostActivity.class);
+                    i.putExtra("puntos",SimonVector.size()-1);
+                    startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
                     final Handler handler5 = new Handler();
@@ -286,7 +308,7 @@ public class PlayScreen extends AppCompatActivity {
             }
         });
 
-
+        //Logica cuando se presiona boton del gallo
         RoosterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -294,8 +316,9 @@ public class PlayScreen extends AppCompatActivity {
                 view.startAnimation(anim);
                 PlayerVector.add(5);
                 if(SimonVector.elementAt(cont) != PlayerVector.elementAt(cont)){
-                    lost = true;
-                    startActivity( new Intent(PlayScreen.this, YouLostActivity.class));
+                    Intent i = new Intent(getApplicationContext(), YouLostActivity.class);
+                    i.putExtra("puntos",SimonVector.size()-1);
+                    startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
                     final Handler handler1 = new Handler();

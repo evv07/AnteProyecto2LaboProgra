@@ -1,3 +1,3 @@
-Anteproyecto2 
-Laboratorio de programación y microcomputadores
+AnteProyecto 2 - Juego de Simon Dice
+Laboratorio Programacion
 Esteban Vargas - B16998

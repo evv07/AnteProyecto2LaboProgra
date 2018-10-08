@@ -10,4 +10,6 @@
     <string name="StartGame">Start Game</string>
     <string name="YouLost">You Lost!</string>
     <string name="SadFace">Sad Face</string>
+    <string name="YourScoreIsTextView">Your score is:</string>
+    <string name="Title">Simon Says Game</string>
 </resources>
