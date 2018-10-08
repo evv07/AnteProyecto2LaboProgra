@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+android:shareInterpolator="false">
+<!--  this is in res/anim/swirl.xml -->
+
+<!--  make it smaller for 800ms -->
+<scale
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:fromXScale="1.0"
+    android:toXScale="0.5"
+    android:fromYScale="1.0"
+    android:toYScale="0.1"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:fillAfter="false"
+    android:duration="800" />
+
+<!--  Then rotate and fade out (alpha = 0) for 800 ms -->
+<rotate
+    android:fromDegrees="0"
+    android:toDegrees="720"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:startOffset="800"
+    android:duration="800" />
+
+<alpha
+    android:fromAlpha="1.0"
+    android:toAlpha="0.0"
+    android:startOffset="800"
+    android:duration="800" />
+
+</set>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
+    tools:context=".PlayScreen">
+
+    <ImageButton
+        android:id="@+id/DogButton"
+        android:layout_width="86dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="176dp"
+        android:contentDescription="@string/DogButtonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dog" />
+
+    <ImageButton
+        android:id="@+id/CatButton"
+        android:layout_width="83dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
+        android:contentDescription="@string/CatButtonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cat" />
+
+    <ImageButton
+        android:id="@+id/CowButton"
+        android:layout_width="82dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="64dp"
+        android:contentDescription="@string/CowButtonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DogButton"
+        app:srcCompat="@drawable/cow" />
+
+    <ImageButton
+        android:id="@+id/HorseButton"
+        android:layout_width="89dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
+        android:contentDescription="@string/HorseButtonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CatButton"
+        app:srcCompat="@drawable/horse" />
+
+    <ImageButton
+        android:id="@+id/FrogButton"
+        android:layout_width="82dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="64dp"
+        android:contentDescription="@string/FrogButtonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CowButton"
+        app:srcCompat="@drawable/frog" />
+
+    <ImageButton
+        android:id="@+id/RoosterButton"
+        android:layout_width="82dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
+        android:contentDescription="@string/RoosterButtonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HorseButton"
+        app:srcCompat="@drawable/rooster" />
+
+    <Button
+        android:id="@+id/StartGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="170dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginRight="153dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/StartGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

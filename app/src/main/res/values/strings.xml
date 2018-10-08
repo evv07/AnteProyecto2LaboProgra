@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Simon</string>
+    <string name="Play">Play</string>
+    <string name="DogButtonName">Dog</string>
+    <string name="CatButtonName">Cat</string>
+    <string name="FrogButtonName">Frog</string>
+    <string name="RoosterButtonName">Rooster</string>
+    <string name="HorseButtonName">Horse</string>
+    <string name="CowButtonName">Cow</string>
+    <string name="StartGame">Start Game</string>
+    <string name="YouLost">You Lost!</string>
+    <string name="SadFace">Sad Face</string>
+</resources>
