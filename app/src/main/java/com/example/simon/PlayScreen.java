@@ -6,12 +6,14 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.Random;
 import java.util.Vector;
@@ -185,6 +187,11 @@ public class PlayScreen extends AppCompatActivity {
                     }
 
                     else if(SimonVector.size() == PlayerVector.size()){
+
+                    Toast toast = Toast.makeText(PlayScreen.this,"Good Job!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+
                     final Handler handler1 = new Handler();
                     handler1.postDelayed(new Runnable() {
                         @Override
@@ -213,6 +220,11 @@ public class PlayScreen extends AppCompatActivity {
                     startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
+
+                    Toast toast = Toast.makeText(PlayScreen.this,"Nice!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+
                     final Handler handler2 = new Handler();
                     handler2.postDelayed(new Runnable() {
                         @Override
@@ -240,6 +252,11 @@ public class PlayScreen extends AppCompatActivity {
                     startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
+
+                    Toast toast = Toast.makeText(PlayScreen.this,"That's right!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+
                     final Handler handler3 = new Handler();
                     handler3.postDelayed(new Runnable() {
                         @Override
@@ -267,6 +284,11 @@ public class PlayScreen extends AppCompatActivity {
                     startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
+
+                    Toast toast = Toast.makeText(PlayScreen.this,"So far, so good!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+
                     final Handler handler4 = new Handler();
                     handler4.postDelayed(new Runnable() {
                         @Override
@@ -294,6 +316,11 @@ public class PlayScreen extends AppCompatActivity {
                     startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
+
+                    Toast toast = Toast.makeText(PlayScreen.this,"Perfect!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+
                     final Handler handler5 = new Handler();
                     handler5.postDelayed(new Runnable() {
                         @Override
@@ -321,6 +348,11 @@ public class PlayScreen extends AppCompatActivity {
                     startActivity(i);
                 }
                 else if(SimonVector.size() == PlayerVector.size()){
+
+                    Toast toast = Toast.makeText(PlayScreen.this,"Excellent!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+
                     final Handler handler1 = new Handler();
                     handler1.postDelayed(new Runnable() {
                         @Override
